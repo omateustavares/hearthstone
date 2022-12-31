@@ -2,6 +2,7 @@ import { Hearthstone } from "../../assets/images";
 import { DEFAULT_TRANSITION } from "../../constants";
 import { CardType } from "../../Interface/cards";
 import { allCards } from "../../mocks/cardsMock";
+import Button from "../Button";
 import { CARDS_ANIMATION, CONTAINER_ANIMATION } from "./animation";
 import {
   AnimatedCard,
@@ -15,11 +16,16 @@ import {
   Navigation,
 } from "./styles";
 
-const Cards = () => {
+interface PropsData {
+  data: CardType[];
+  onClick: (cardItem: CardType) => void;
+}
+
+const Cards = ({ data, onClick }: PropsData) => {
   return (
     <AnimatedContainer variants={CONTAINER_ANIMATION}>
       <Navigation>
-        {allCards.map((cardItem: CardType) => (
+        {data.map((cardItem: CardType) => (
           <AnimatedCard
             key={cardItem.id}
             variants={CARDS_ANIMATION}
@@ -29,7 +35,7 @@ const Cards = () => {
           >
             <Hearthstone />
             <Content>
-              <h2>{cardItem.nome}</h2>
+              <h3>{cardItem.nome}</h3>
               <ClassName>{cardItem.classe}</ClassName>
 
               <ContentCard>
@@ -48,6 +54,8 @@ const Cards = () => {
                     <CardDetails>Tipo: {cardItem.tipo}</CardDetails>
                   </CardDetailsContent>
                 </ContentInformationCard>
+                <br />
+                <Button onClick={() => onClick(cardItem)}>Editar</Button>
               </ContentCard>
             </Content>
           </AnimatedCard>

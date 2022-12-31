@@ -2,17 +2,17 @@ export const defaultTheme = {
   colors: {
     background: "#1F2029",
     grey900: "#181B23",
+    yellow: "#FFEA3E",
+    grey700: "#353646",
 
     primary: "#FF8700",
     primaryDark: "#FF7A00",
     secondary: "#FF500F",
-    grey: "#8C91A5",
     greyLowerOpacity: "#abaebf",
     lightGrey: "#F5F6FA",
     success: "#20C05C",
     error: "#FD4F48",
     label: "#fff",
-    yellow: "#FFEA3E",
   },
 
   "900": "#181B23",

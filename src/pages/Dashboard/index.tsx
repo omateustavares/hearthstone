@@ -1,4 +1,3 @@
-import Cards from "../../components/Cards";
 import DafaultLayout from "../_layouts/default";
 import { DASHBOARD_ANIMATION } from "./animations";
 import MainContent from "./MainContent";

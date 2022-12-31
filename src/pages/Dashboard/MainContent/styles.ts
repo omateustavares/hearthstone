@@ -14,6 +14,11 @@ export const Container = styled.main`
 export const FormFilter = styled.div`
   flex-direction: row;
   display: flex;
+
+  @media (max-width: 670px) {
+    flex-direction: column;
+    height: 100%;
+  }
 `;
 
 export const RadioButtonGroup = styled.div`

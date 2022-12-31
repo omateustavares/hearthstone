@@ -9,15 +9,16 @@ export const Container = styled.div`
   flex: 1;
   justify-content: center;
   z-index: 2;
-  padding: 0 1.6rem;
+  padding: 0 2.6rem;
 `;
 
 export const AnimatedWrapper = styled(motion.div)`
-  max-width: 113rem;
+  max-width: 110rem;
   width: 100%;
   display: flex;
 
   @media (max-width: 670px) {
     flex-direction: column;
+    height: 100%;
   }
 `;

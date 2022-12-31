@@ -41,3 +41,16 @@ export const ImageLogo = styled(motion.img)`
   height: 8.4rem;
   width: auto;
 `;
+
+export const AnimatedRightNav = styled(motion.div)`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex: 1;
+
+  @media (max-width: 470px) {
+    > button {
+      display: none;
+    }
+  }
+`;

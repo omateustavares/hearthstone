@@ -5,20 +5,20 @@ import { motion } from "framer-motion";
 export const AnimatedContainer = styled(motion.div)`
   ${({ theme }) => css`
     width: 100%;
-    min-height: 12rem;
+    min-height: 13rem;
     height: auto;
     display: flex;
     flex-shrink: 0;
 
-    > button:last-child {
+    > div:last-child {
       margin: 0 0 2.4rem 2.4rem;
       align-self: flex-end;
-      background: ${transparentize(0.92, theme.colors.grey)};
+      background: ${transparentize(0.92, theme.colors.yellow)};
       border-radius: 50%;
       max-width: 4rem;
       max-height: 4rem;
       width: 100%;
-      height: 100%;
+
       padding: 0;
 
       svg {
@@ -31,26 +31,27 @@ export const AnimatedContainer = styled(motion.div)`
 
 export const Navigation = styled.nav`
   display: grid;
+  flex-direction: row;
   width: 100%;
   grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
-  grid-gap: 1.2rem;
+  grid-gap: 1.5rem;
 `;
 
-export const AnimatedCard = styled(motion.button)`
+export const AnimatedCard = styled(motion.div)`
+  max-width: 28rem;
   ${({ theme }) => css`
     min-height: 12rem;
-    width: 100%;
-    height: 100%;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: ${theme.colors.grey};
+    color: ${theme.colors.label};
     border-radius: ${theme.radii.default};
     box-shadow: ${theme.shadows.default};
     font-size: ${theme.fontSizes.default};
     padding: 0.5rem;
-    /* background: ${theme.colors.grey}; */
+    background: ${theme.colors.grey700};
 
     svg {
       stroke: ${theme.colors.background};
@@ -71,7 +72,8 @@ export const AnimatedCard = styled(motion.button)`
 export const Content = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
+  text-align: center;
   height: 100%;
   width: 100%;
 `;
@@ -100,6 +102,7 @@ export const ContentInformationCard = styled.div`
   display: grid;
   width: 100%;
   grid-template-columns: repeat(auto-fit, minmax(1.8rem, 1fr, 1fr, 1fr));
+
   grid-gap: 0.8rem;
   padding: 0.5rem;
 
