@@ -1,9 +1,10 @@
 import React, { InputHTMLAttributes, useRef } from "react";
-import { Container } from "./styles";
+import { Container, Error } from "./styles";
 
 interface SearchInputProps extends InputHTMLAttributes<HTMLInputElement> {
   name: string;
   type?: string;
+  error?: boolean;
 }
 
 const SearchInput: React.FC<SearchInputProps> = ({
@@ -11,6 +12,7 @@ const SearchInput: React.FC<SearchInputProps> = ({
   type,
   value,
   onChange,
+  error,
   ...rest
 }) => {
   const input = useRef<HTMLInputElement>(null);

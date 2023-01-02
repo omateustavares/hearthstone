@@ -12,6 +12,18 @@ const variants = {
       color: ${({ theme }) => theme.colors.grey900};
     }
   `,
+
+  danger: css`
+    background: transparent;
+    border: 0.1rem solid ${({ theme }) => theme.colors.error};
+    color: ${({ theme }) => theme.colors.error};
+
+    :hover {
+      background: ${({ theme }) => theme.colors.error};
+      color: ${({ theme }) => theme.colors.grey900};
+    }
+  `,
+
   transparent: css`
     background: transparent;
   `,

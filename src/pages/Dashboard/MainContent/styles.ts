@@ -23,17 +23,55 @@ export const FormFilter = styled.div`
 
 export const RadioButtonGroup = styled.div`
   ${({ theme }) => css`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    margin-top: 2.4rem;
-    margin-bottom: 2.4rem;
-    flex-direction: row;
+    margin-bottom: 2rem;
+    font-size: ${theme.fontSizes.large};
+    text-align: center;
+    color: ${theme.colors.yellow};
   `}
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 2.4rem;
+  margin-bottom: 2.4rem;
+  flex-direction: row;
+
+  > div {
+    justify-content: center;
+
+    @media (max-width: 375px) {
+      margin-bottom: 1rem;
+    }
+  }
+
+  label {
+    width: 100%;
+    justify-content: space-around;
+    margin-right: 1rem;
+  }
 
   input {
     margin-right: 1rem;
   }
+
+  @media (max-width: 375px) {
+    flex-direction: column;
+  }
+`;
+
+export const WithoutCards = styled.div`
+  ${({ theme }) => css`
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    h3 {
+      margin-bottom: 2rem;
+      font-size: ${theme.fontSizes.large};
+      text-align: center;
+      color: ${theme.colors.yellow};
+    }
+  `}
 `;

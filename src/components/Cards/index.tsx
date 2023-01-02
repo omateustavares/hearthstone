@@ -1,7 +1,6 @@
 import { Hearthstone } from "../../assets/images";
 import { DEFAULT_TRANSITION } from "../../constants";
 import { CardType } from "../../Interface/cards";
-import { allCards } from "../../mocks/cardsMock";
 import Button from "../Button";
 import { CARDS_ANIMATION, CONTAINER_ANIMATION } from "./animation";
 import {
@@ -35,8 +34,7 @@ const Cards = ({ data, onClick }: PropsData) => {
           >
             <Hearthstone />
             <Content>
-              <h3>{cardItem.nome}</h3>
-              <ClassName>{cardItem.classe}</ClassName>
+              <ClassName>{cardItem.nome}</ClassName>
 
               <ContentCard>
                 <br />
@@ -44,6 +42,9 @@ const Cards = ({ data, onClick }: PropsData) => {
                 <br />
 
                 <ContentInformationCard>
+                  <CardDetailsContent>
+                    <CardDetails>Classe: {cardItem.classe}</CardDetails>
+                  </CardDetailsContent>
                   <CardDetailsContent>
                     <CardDetails>Ataque: {cardItem.ataque}</CardDetails>
                   </CardDetailsContent>

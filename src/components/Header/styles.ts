@@ -35,6 +35,12 @@ export const AnimatedLeftNav = styled(motion.div)`
 
   font-size: ${({ theme }) => theme.fontSizes.small};
   font-weight: 700;
+
+  @media (max-width: 470px) {
+    > img {
+      display: none;
+    }
+  }
 `;
 
 export const ImageLogo = styled(motion.img)`
@@ -47,10 +53,4 @@ export const AnimatedRightNav = styled(motion.div)`
   justify-content: flex-end;
   align-items: center;
   flex: 1;
-
-  @media (max-width: 470px) {
-    > button {
-      display: none;
-    }
-  }
 `;

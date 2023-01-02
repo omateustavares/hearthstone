@@ -19,7 +19,7 @@ export const defaultTheme = {
   "800": "#1F2029",
   fontSizes: {
     default: "1.4rem",
-    large: "1.6rem",
+    large: "1.7rem",
     small: "1.2rem",
     tiny: "1rem",
   },

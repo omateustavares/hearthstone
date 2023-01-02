@@ -1,14 +1,20 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
-import { Container, FormFilter, RadioButtonGroup } from "./styles";
+import {
+  Container,
+  FormFilter,
+  RadioButtonGroup,
+  WithoutCards,
+} from "./styles";
 import Cards from "../../../components/Cards";
 import SearchInput from "../../../components/InputSearch";
 import { useDebounce } from "../../../hooks/Debounce";
 import { CardType } from "../../../Interface/cards";
 import { allCards } from "../../../mocks/cardsMock";
 import RadioButton from "../../../components/RadioButton";
-import CreateCard from "../../CreateCard";
 import { useNavigate } from "react-router-dom";
+import { useCard } from "../../../hooks/Cards";
+import Button from "../../../components/Button";
 
 interface EditCard {
   isNewCard: boolean;
@@ -16,35 +22,17 @@ interface EditCard {
 }
 
 const MainContent = () => {
-  const [edit, setEdit] = useState(false);
   const [checked, setCheck] = useState("");
+  const [errorInput, setErrorInput] = useState(false);
   const { debounce } = useDebounce();
   const navigate = useNavigate();
 
-  const [list, setList] = useState<CardType[]>(allCards);
+  const { cards, loadDataCardMock, loadDataCard, filterAllCards } = useCard();
 
-  const loadData = () => {
-    setList(allCards);
-  };
+  const filteringCards = async (item: string): Promise<void> => {
+    if (!checked) setErrorInput(true);
 
-  useEffect(() => {
-    loadData();
-  }, [checked]);
-
-  const filterAllCards = async (item: string): Promise<void> => {
-    if (!item) {
-      loadData();
-      setCheck("");
-    }
-
-    const result = list.filter((card) =>
-      card[checked as keyof CardType]
-        .toString()
-        .toLowerCase()
-        .includes(item.toLowerCase())
-    );
-
-    setList(result);
+    filterAllCards(item, checked);
   };
 
   const handleCatChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -62,66 +50,81 @@ const MainContent = () => {
       <Container>
         <FormFilter>
           <SearchInput
+            error={errorInput}
             placeholder="Digite o id, nome, classe ou tipo"
             name="search"
             onChange={(event) =>
               debounce({
-                internalFunction: filterAllCards,
+                internalFunction: filteringCards,
                 event,
               })
             }
           />
           <RadioButtonGroup>
-            <RadioButton
-              label="Id"
-              value="id"
-              name="id"
-              checked={checked === "id"}
-              onChange={handleCatChange}
-            />
-            <RadioButton
-              label="Nome"
-              value="nome"
-              name="nome"
-              checked={checked === "nome"}
-              onChange={handleCatChange}
-            />
-            <RadioButton
-              label="Classe"
-              name="classe"
-              value="classe"
-              checked={checked === "classe"}
-              onChange={handleCatChange}
-            />
-            <RadioButton
-              name="tipo"
-              value="tipo"
-              label="Tipo"
-              checked={checked === "tipo"}
-              onChange={handleCatChange}
-            />
-            <button
+            <div>
+              <RadioButton
+                label="Id"
+                value="id"
+                name="id"
+                checked={checked === "id"}
+                onChange={handleCatChange}
+              />
+              <RadioButton
+                label="Nome"
+                value="nome"
+                name="nome"
+                checked={checked === "nome"}
+                onChange={handleCatChange}
+              />
+              <RadioButton
+                label="Classe"
+                name="classe"
+                value="classe"
+                checked={checked === "classe"}
+                onChange={handleCatChange}
+              />
+              <RadioButton
+                name="tipo"
+                value="tipo"
+                label="Tipo"
+                checked={checked === "tipo"}
+                onChange={handleCatChange}
+              />
+            </div>
+            <Button
+              variant="secondary"
               type="button"
               onClick={() => {
                 setCheck("");
-                setList(allCards);
+                loadDataCard();
               }}
             >
-              Xico
-            </button>
+              Limpar seleção
+            </Button>
           </RadioButtonGroup>
         </FormFilter>
 
-        <Cards
-          data={list}
-          onClick={(e) => {
-            editCard({
-              isNewCard: false,
-              data: e,
-            });
-            setEdit(true);
-          }}
-        />
+        {cards.length === 0 ? (
+          <WithoutCards>
+            <h3>
+              Você não tem nenhuma carta, podemos gerar algumas para você ou
+              você pode criar uma nova carta.
+            </h3>
+            <Button variant="secondary" onClick={loadDataCardMock}>
+              Gerar cartas
+            </Button>
+          </WithoutCards>
+        ) : (
+          <Cards
+            data={cards}
+            onClick={(e) => {
+              editCard({
+                isNewCard: false,
+                data: e,
+              });
+            }}
+          />
+        )}
       </Container>
     </>
   );

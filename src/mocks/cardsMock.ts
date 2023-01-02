@@ -1,0 +1,98 @@
+export const allCards = [
+  {
+    id: "26785614-121a-46ba-b3bf-897ad67fb2d3",
+    nome: "Natalie Lee-Walsh",
+    descricao: "Curabitur elementum felis a tellus maximus cursus.",
+    ataque: 1,
+    defesa: 10,
+    tipo: "criatura",
+    classe: "mago",
+  },
+  {
+    id: "7d5859c0-542d-4e5e-8188-b7a7525830ea",
+    nome: "Trevor Virtue",
+    descricao: "Ut maximus ligula at magna hendrerit auctor.",
+    ataque: 2,
+    defesa: 5,
+    tipo: "magia",
+    classe: "paladino",
+  },
+  {
+    id: "83ef4847-46f4-4f60-b7f2-99d1feb804a6",
+    nome: "Natalie Lee-Walsh",
+    descricao: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    ataque: 3,
+    defesa: 10,
+    tipo: "magia",
+    classe: "caçador",
+  },
+  {
+    id: "e773f66d-f857-4715-8b4f-cc82df0ed17d",
+    nome: "John Stone",
+    descricao:
+      "Quisque sit amet diam ac lacus bibendum scelerisque at quis urna.",
+    ataque: 10,
+    defesa: 7,
+    tipo: "criatura",
+    classe: "druida",
+  },
+  {
+    id: "97533683-bdc9-4f65-8518-0b0ffdedeab9",
+    nome: "Salome Simoes",
+    descricao:
+      "Etiam ut dui consequat, auctor lectus vulputate, luctus lectus.",
+    ataque: 3,
+    defesa: 7,
+    tipo: "magia",
+    classe: "qualquer",
+  },
+  {
+    id: "8f46115f-62d6-4680-be8e-e08aec981f02",
+    nome: "Tamzyn French",
+    descricao:
+      "Etiam ut dui consequat, auctor lectus vulputate, luctus lectus.",
+    ataque: 2,
+    defesa: 6,
+    tipo: "criatura",
+    classe: "druida",
+  },
+  {
+    id: "0ab5db36-410e-4dd2-aaaa-1e8aa464ef17",
+    nome: "Natalie Lee-Walsh",
+    descricao: "Nullam at felis ac nisl aliquet congue eget in erat.",
+    ataque: 2,
+    defesa: 4,
+    tipo: "magia",
+    classe: "paladino",
+  },
+  {
+    id: "ad5c2a1a-16fd-4bf2-ac37-7179001d15d1",
+    nome: "Tamzyn French",
+    descricao:
+      "Donec eleifend risus non turpis fermentum, ut venenatis turpis mollis.",
+    ataque: 5,
+    defesa: 10,
+    tipo: "magia",
+    classe: "caçador",
+  },
+  {
+    id: "56c43d20-3a2c-461b-a88e-573568421c43",
+    nome: "John Stone",
+    descricao:
+      "Etiam ut dui consequat, auctor lectus vulputate, luctus lectus.",
+    ataque: 2,
+    defesa: 4,
+    tipo: "criatura",
+    classe: "qualquer",
+  },
+  {
+    id: "858b46fb-54ba-4b69-8f10-dfbf20fc4bbe",
+    nome: "Nguta Ithya",
+    descricao:
+      "Etiam ut dui consequat, auctor lectus vulputate, luctus lectus.",
+    ataque: 3,
+    defesa: 10,
+    tipo: "magia",
+    classe: "qualquer",
+  },
+];

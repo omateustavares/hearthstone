@@ -8,6 +8,7 @@ export const Container = styled.div`
     justify-content: center;
     align-items: center;
     width: 100%;
+    height: auto;
     margin-top: 2.4rem;
     margin-bottom: 2.4rem;
 
@@ -23,5 +24,12 @@ export const Container = styled.div`
         opacity: 10;
       }
     }
+  `}
+`;
+
+export const Error = styled.span`
+  ${({ theme }) => css`
+    color: ${theme.colors.error};
+    font-size: ${theme.fontSizes.default};
   `}
 `;

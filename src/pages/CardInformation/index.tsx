@@ -1,7 +1,7 @@
 import { Hearthstone } from "../../assets/images";
 import { ANIMATION } from "./animations";
-import { AnimatedContainer, Container, Form, SignInButton } from "./styles";
-import { useForm } from "react-hook-form";
+import { AnimatedContainer, Container, ContentButton, Form } from "./styles";
+import { SubmitHandler, useForm } from "react-hook-form";
 import { NewSelect } from "../../components/NewSelect";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { validatorNewCard } from "../../validators/createNewCard";
@@ -12,27 +12,51 @@ import {
   NUMBERS_SELECT_CARD,
   TYPE_SELECT_CARD,
 } from "../../constants";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useCard } from "../../hooks/Cards";
+import Button from "../../components/Button";
 
 const CardInformation = () => {
   const { state } = useLocation();
-  const { createNewCard } = useCard();
+  const { createNewCard, removeCard, updateDataCard } = useCard();
 
   const {
     control,
     handleSubmit,
     formState: { errors },
+    getValues,
   } = useForm<CardType>({
     resolver: yupResolver(validatorNewCard),
     defaultValues: state?.isNewCard ? "" : state?.data,
   });
+  const navigate = useNavigate();
 
-  const onSubmit = handleSubmit((data) => {
+  const handleCreateCard: SubmitHandler<CardType> = (data) => {
     const { ataque, classe, defesa, descricao, nome, tipo } = data;
 
     createNewCard({ ataque, classe, defesa, descricao, nome, tipo });
-  });
+    navigate("/");
+  };
+
+  const handleUpdateCard = () => {
+    const { id, ataque, classe, defesa, descricao, nome, tipo } = getValues();
+    updateDataCard({
+      id,
+      ataque,
+      classe,
+      defesa,
+      descricao,
+      nome,
+      tipo,
+    });
+
+    navigate("/");
+  };
+
+  const handleDeleteCard = (id: string) => {
+    removeCard(id);
+    navigate("/");
+  };
 
   return (
     <Container>
@@ -45,8 +69,12 @@ const CardInformation = () => {
         <h1>
           <Hearthstone />
         </h1>
-        <h2>Olá, crie sua carta personalizada!</h2>
-        <Form onSubmit={onSubmit}>
+        {state?.isNewCard ? (
+          <h2>Olá, crie sua carta personalizada!</h2>
+        ) : (
+          <h2>Olá, atualize o campo que você deseja.</h2>
+        )}
+        <Form onSubmit={handleSubmit(handleCreateCard)}>
           <div>
             <InputForm
               control={control}
@@ -95,9 +123,34 @@ const CardInformation = () => {
               name="classe"
             />
           </div>
-          <SignInButton type="submit" disabled={false}>
-            Entrar no App
-          </SignInButton>
+
+          <ContentButton>
+            {state?.isNewCard ? (
+              <Button type="submit" variant="secondary" disabled={false}>
+                Criar nova carta
+              </Button>
+            ) : (
+              <Button
+                variant="secondary"
+                disabled={false}
+                onClick={handleUpdateCard}
+              >
+                Atualizar
+              </Button>
+            )}
+
+            {!state.isNewCard && (
+              <Button
+                variant="danger"
+                disabled={false}
+                onClick={() => {
+                  handleDeleteCard(state?.data.id);
+                }}
+              >
+                Excluir carta
+              </Button>
+            )}
+          </ContentButton>
         </Form>
       </AnimatedContainer>
     </Container>

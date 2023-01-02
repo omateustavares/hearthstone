@@ -13,7 +13,7 @@ const Header = () => {
   const navigate = useNavigate();
 
   const goToPageCreateCard = () => {
-    navigate("/card-information");
+    navigate("/card-information", { state: { isNewCard: true } });
   };
   return (
     <AnimatedLeftNav

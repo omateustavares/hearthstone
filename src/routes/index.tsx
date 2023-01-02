@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import CardInformation from "../pages/CreateCard";
+import CardInformation from "../pages/CardInformation";
 
 import Dashboard from "../pages/Dashboard";
 

@@ -38,7 +38,6 @@ export const Navigation = styled.nav`
 `;
 
 export const AnimatedCard = styled(motion.div)`
-  max-width: 28rem;
   ${({ theme }) => css`
     min-height: 12rem;
 
@@ -85,6 +84,7 @@ export const ClassName = styled.div`
     color: ${theme.colors.label};
     background-color: ${theme.colors.background};
     padding: 1rem;
+    font-weight: 700;
     text-transform: capitalize;
     font-size: ${theme.fontSizes.large};
   `};

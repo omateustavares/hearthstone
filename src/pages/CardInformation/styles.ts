@@ -34,7 +34,6 @@ export const AnimatedContainer = styled(motion.main)`
     h2 {
       font-size: ${theme.fontSizes.large};
       text-align: center;
-      font-weight: 500;
       color: ${theme.colors.label};
       margin-bottom: 3rem;
     }
@@ -61,12 +60,8 @@ export const SignInButton = styled(Button)`
     width: 100%;
     margin-top: 1.2rem;
     color: ${theme.colors.label};
-    background: ${`linear-gradient(90deg, ${theme.colors.secondary} 0%, ${theme.colors.primary} 100%)`};
+    background: ${`linear-gradient(4deg, ${theme.colors.grey700} 0%, ${theme.colors.grey900} 100%)`};
     transition: 300ms ease-in-out;
-
-    :disabled {
-      background: ${`linear-gradient(90deg, ${theme.colors.yellow} 0%, ${theme.colors.yellow} 100%)`};
-    }
 
     :not(:disabled):before {
       content: "";
@@ -83,19 +78,26 @@ export const SignInButton = styled(Button)`
       pointer-events: none;
     }
 
-    :hover:not(:disabled) {
+    /* :hover:not(:disabled) {
       background: ${`linear-gradient(90deg, ${lighten(
-        0.04,
-        theme.colors.secondary
-      )} 0%, ${lighten(0.04, theme.colors.primary)} 100%)`};
+      0.04,
+      theme.colors.secondary
+    )} 0%, ${lighten(0.04, theme.colors.primary)} 100%)`};
 
       :before {
         opacity: 1;
       }
-    }
+    } */
 
     :active:before {
       opacity: 0;
     }
   `}
+`;
+
+export const ContentButton = styled.main`
+  width: 100%;
+
+  display: flex;
+  justify-content: space-evenly;
 `;
