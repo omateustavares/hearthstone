@@ -24,8 +24,15 @@ const variants = {
     }
   `,
 
-  transparent: css`
+  adding: css`
     background: transparent;
+    border: 0.1rem solid ${({ theme }) => theme.colors.blue};
+    color: ${({ theme }) => theme.colors.blue};
+
+    :hover {
+      background: ${({ theme }) => theme.colors.blue};
+      color: ${({ theme }) => theme.colors.grey900};
+    }
   `,
 };
 

@@ -75,3 +75,28 @@ export const WithoutCards = styled.div`
     }
   `}
 `;
+
+export const DecksContainer = styled.div`
+  display: flex;
+  width: 100%;
+  min-height: 2rem;
+  padding: 1rem;
+  align-items: flex-start;
+
+  ${({ theme }) => css`
+    background: ${`linear-gradient(4deg, ${theme.colors.yellow} 0%, ${theme.colors.grey900} 100%)`};
+  `}/* > div {
+    max-width: 4rem;
+  } */
+`;
+
+export const TextDecks = styled.p`
+  width: 100%;
+  min-height: 2rem;
+
+  ${({ theme }) => css`
+    font-size: ${theme.fontSizes.large};
+    text-align: center;
+    color: ${theme.colors.label};
+  `}
+`;

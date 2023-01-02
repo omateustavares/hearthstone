@@ -23,7 +23,7 @@ export const CardContext = createContext<CardContextData>(
   {} as CardContextData
 );
 
-const USER_COLLECTION = "@hearthstone:users";
+const USER_COLLECTION = "@hearthstone:cards";
 
 const CardProvider = ({ children }: CardProviderProps) => {
   const [cards, setCards] = useState<CardType[]>([]);
@@ -46,9 +46,9 @@ const CardProvider = ({ children }: CardProviderProps) => {
   };
 
   const removeCard = (id: string) => {
-    const cardsListCopy = cards.filter((card) => card.id !== id);
+    const cardsList = cards.filter((card) => card.id !== id);
 
-    localStorage.setItem(USER_COLLECTION, JSON.stringify(cardsListCopy));
+    localStorage.setItem(USER_COLLECTION, JSON.stringify(cardsList));
     loadDataCard();
   };
 
@@ -61,7 +61,6 @@ const CardProvider = ({ children }: CardProviderProps) => {
     nome,
     tipo,
   }) => {
-    console.log({ id, ataque, classe, defesa, descricao, nome, tipo });
     const cardUpdated = cards.map((card) => ({ ...card }));
     const cardToUpdate = cardUpdated.find((card) => card.id === id);
 

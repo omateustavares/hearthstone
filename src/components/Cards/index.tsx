@@ -10,6 +10,7 @@ import {
   CardDetailsContent,
   ClassName,
   Content,
+  ContentButton,
   ContentCard,
   ContentInformationCard,
   Navigation,
@@ -18,9 +19,18 @@ import {
 interface PropsData {
   data: CardType[];
   onClick: (cardItem: CardType) => void;
+  addCard?: (cardItem: CardType) => void;
+  removeCard?: (id: string) => void;
+  isFromDeck: boolean;
 }
 
-const Cards = ({ data, onClick }: PropsData) => {
+const Cards = ({
+  data,
+  onClick,
+  addCard,
+  removeCard,
+  isFromDeck,
+}: PropsData) => {
   return (
     <AnimatedContainer variants={CONTAINER_ANIMATION}>
       <Navigation>
@@ -54,9 +64,43 @@ const Cards = ({ data, onClick }: PropsData) => {
                   <CardDetailsContent>
                     <CardDetails>Tipo: {cardItem.tipo}</CardDetails>
                   </CardDetailsContent>
+                  <CardDetailsContent>
+                    <CardDetails>Identificação: {cardItem.id}</CardDetails>
+                  </CardDetailsContent>
                 </ContentInformationCard>
                 <br />
-                <Button onClick={() => onClick(cardItem)}>Editar</Button>
+
+                <ContentButton>
+                  {isFromDeck ? (
+                    <Button
+                      variant="danger"
+                      onClick={() => {
+                        removeCard(cardItem.id);
+                      }}
+                    >
+                      Remover
+                    </Button>
+                  ) : (
+                    <>
+                      <Button
+                        variant="adding"
+                        onClick={() => {
+                          addCard(cardItem);
+                        }}
+                      >
+                        Adicionar
+                      </Button>
+                      <Button
+                        variant="secondary"
+                        onClick={() => {
+                          onClick(cardItem);
+                        }}
+                      >
+                        Editar
+                      </Button>
+                    </>
+                  )}
+                </ContentButton>
               </ContentCard>
             </Content>
           </AnimatedCard>

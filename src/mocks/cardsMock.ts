@@ -1,6 +1,6 @@
 export const allCards = [
   {
-    id: "26785614-121a-46ba-b3bf-897ad67fb2d3",
+    id: Math.floor(Math.random() * Date.now()),
     nome: "Natalie Lee-Walsh",
     descricao: "Curabitur elementum felis a tellus maximus cursus.",
     ataque: 1,
@@ -9,7 +9,7 @@ export const allCards = [
     classe: "mago",
   },
   {
-    id: "7d5859c0-542d-4e5e-8188-b7a7525830ea",
+    id: Math.floor(Math.random() * Date.now()),
     nome: "Trevor Virtue",
     descricao: "Ut maximus ligula at magna hendrerit auctor.",
     ataque: 2,
@@ -18,7 +18,7 @@ export const allCards = [
     classe: "paladino",
   },
   {
-    id: "83ef4847-46f4-4f60-b7f2-99d1feb804a6",
+    id: Math.floor(Math.random() * Date.now()),
     nome: "Natalie Lee-Walsh",
     descricao: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     ataque: 3,
@@ -27,7 +27,7 @@ export const allCards = [
     classe: "caçador",
   },
   {
-    id: "e773f66d-f857-4715-8b4f-cc82df0ed17d",
+    id: Math.floor(Math.random() * Date.now()),
     nome: "John Stone",
     descricao:
       "Quisque sit amet diam ac lacus bibendum scelerisque at quis urna.",
@@ -37,7 +37,7 @@ export const allCards = [
     classe: "druida",
   },
   {
-    id: "97533683-bdc9-4f65-8518-0b0ffdedeab9",
+    id: Math.floor(Math.random() * Date.now()),
     nome: "Salome Simoes",
     descricao:
       "Etiam ut dui consequat, auctor lectus vulputate, luctus lectus.",
@@ -47,7 +47,7 @@ export const allCards = [
     classe: "qualquer",
   },
   {
-    id: "8f46115f-62d6-4680-be8e-e08aec981f02",
+    id: Math.floor(Math.random() * Date.now()),
     nome: "Tamzyn French",
     descricao:
       "Etiam ut dui consequat, auctor lectus vulputate, luctus lectus.",
@@ -57,7 +57,7 @@ export const allCards = [
     classe: "druida",
   },
   {
-    id: "0ab5db36-410e-4dd2-aaaa-1e8aa464ef17",
+    id: Math.floor(Math.random() * Date.now()),
     nome: "Natalie Lee-Walsh",
     descricao: "Nullam at felis ac nisl aliquet congue eget in erat.",
     ataque: 2,
@@ -66,7 +66,7 @@ export const allCards = [
     classe: "paladino",
   },
   {
-    id: "ad5c2a1a-16fd-4bf2-ac37-7179001d15d1",
+    id: Math.floor(Math.random() * Date.now()),
     nome: "Tamzyn French",
     descricao:
       "Donec eleifend risus non turpis fermentum, ut venenatis turpis mollis.",
@@ -76,7 +76,7 @@ export const allCards = [
     classe: "caçador",
   },
   {
-    id: "56c43d20-3a2c-461b-a88e-573568421c43",
+    id: Math.floor(Math.random() * Date.now()),
     nome: "John Stone",
     descricao:
       "Etiam ut dui consequat, auctor lectus vulputate, luctus lectus.",
@@ -86,7 +86,7 @@ export const allCards = [
     classe: "qualquer",
   },
   {
-    id: "858b46fb-54ba-4b69-8f10-dfbf20fc4bbe",
+    id: Math.floor(Math.random() * Date.now()),
     nome: "Nguta Ithya",
     descricao:
       "Etiam ut dui consequat, auctor lectus vulputate, luctus lectus.",

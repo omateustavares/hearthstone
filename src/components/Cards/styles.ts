@@ -114,6 +114,12 @@ export const ContentInformationCard = styled.div`
 
 export const CardDetailsContent = styled.div``;
 
+export const ContentButton = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+`;
+
 export const CardDetails = styled.span`
   ${({ theme }) => css`
     text-transform: capitalize;
