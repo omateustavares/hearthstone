@@ -26,10 +26,3 @@ export const Container = styled.div`
     }
   `}
 `;
-
-export const Error = styled.span`
-  ${({ theme }) => css`
-    color: ${theme.colors.error};
-    font-size: ${theme.fontSizes.default};
-  `}
-`;

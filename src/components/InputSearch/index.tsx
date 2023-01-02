@@ -1,5 +1,5 @@
 import React, { InputHTMLAttributes, useRef } from "react";
-import { Container, Error } from "./styles";
+import { Container } from "./styles";
 
 interface SearchInputProps extends InputHTMLAttributes<HTMLInputElement> {
   name: string;
